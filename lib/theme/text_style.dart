@@ -8,12 +8,14 @@ import 'app_colors.dart';
 TextStyle getBoldStyle({
   Color color = kcBlackColor,
   double fontSize = 24,
-  FontWeight fontWeight = FontWeight.bold,
+  FontWeight fontWeight = FontWeight.w500,
 }) {
-  return GoogleFonts.poppins(
+  return GoogleFonts.duruSans(
     fontSize: fontSize,
     color: color,
     fontWeight: fontWeight,
+    letterSpacing: -0.5,
+
   );
 }
 TextStyle getRegularBoldStyle({
