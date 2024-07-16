@@ -1,7 +1,9 @@
 
+import 'dart:developer';
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:try_fit/theme/app_theme.dart';
-import 'package:try_fit/views/start_up/startup_view.dart';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,10 +11,15 @@ import 'package:get/get.dart';
 import 'package:try_fit/core/imports/core_imports.dart';
 import 'package:try_fit/views/splash/splash_view.dart';
 
+import 'firebase_options.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  final response = await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  log(response.toString());
 
   runApp(const MyApp());
 }

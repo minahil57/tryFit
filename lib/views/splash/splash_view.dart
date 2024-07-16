@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:try_fit/core/imports/core_imports.dart';
@@ -10,6 +9,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(SplashController());
+
     return Scaffold(
       backgroundColor: kcWhitecolor,
       body: Padding(
@@ -29,6 +29,7 @@ class SplashView extends StatelessWidget {
                   AssetManager.logoGif,
                   height: 200.h,
                 ),
+
               ),
               SizedBox(height: 14.h),
             ],

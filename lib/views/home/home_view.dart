@@ -1,13 +1,15 @@
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
 import 'package:get/get.dart';
 import 'package:try_fit/views/home/home_view_controller.dart';
 import 'package:try_fit/views/home/widgets/brand_list.dart';
 import 'package:try_fit/views/home/widgets/item_display_grid.dart';
 import 'package:try_fit/views/home/widgets/tab_bar.dart';
 import 'package:try_fit/views/home/widgets/top_container.dart';
+import 'package:try_fit/widgets/grid_item.dart';
 import '../../core/imports/core_imports.dart';
-import '../../widgets/grid_item.dart';
 
 class HomeView extends GetView<HomeViewController> {
   const HomeView({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:try_fit/core/imports/external_imports.dart';
+import 'package:try_fit/views/db_uploading/db_uploading.dart';
 import 'package:try_fit/views/home/home_view_controller.dart';
 import 'package:try_fit/views/item_detail/item_detail_view.dart';
 import 'package:try_fit/widgets/grid_item.dart';
@@ -16,35 +17,43 @@ class ItemDisplayGrid extends GetView<HomeViewController> {
       mainAxisSpacing: 2,
       crossAxisSpacing: 20,
       children: [
-        Container(
-          alignment: Alignment.center,
-          height: 40.h,
-          width: Get.width * 0.4,
-          decoration: BoxDecoration(
-            color: kcPrimaryColor,
-            borderRadius: BorderRadius.circular(50.r),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Filters',
-                style: getMediumStyle(
-                    fontWeight: FontWeight.w400, color: kcWhitecolor),
-              ),
-              Container(
-                height: 40.h,
-                decoration: const BoxDecoration(
-                  color: kcWhitecolor,
-                  shape: BoxShape.circle,
+
+
+        GestureDetector(
+          onTap: (){
+            Get.to(() => ProductInputScreen());
+          },
+          child: Container(
+            alignment: Alignment.center,
+            height: 40.h,
+            width: Get.width * 0.4,
+            decoration: BoxDecoration(
+              color: kcPrimaryColor,
+              borderRadius: BorderRadius.circular(50.r),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  'Filters',
+                  style: getMediumStyle(
+                      fontWeight: FontWeight.w400, color: kcWhitecolor),
                 ),
-                child: Icon(
-                  Icons.filter_alt_outlined,
-                  color: kcPrimaryColor,
-                  size: 18.dg,
+                Container(
+                  height: 40.h,
+                  decoration: const BoxDecoration(
+                    color: kcWhitecolor,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.filter_alt_outlined,
+                    color: kcPrimaryColor,
+                    size: 18.dg,
+                  ),
+
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         ...controller.products.map((products) => StaggeredGridTile.count(

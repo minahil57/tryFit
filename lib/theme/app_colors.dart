@@ -10,4 +10,4 @@ const Color kcWhitecolor = Colors.white;
 const Color kcBlackColor = Colors.black;
 const Color kcRedColor = Colors.red;
 const Color kcGreenColor = Colors.green;
-Color kcBackgroundColor = Color.fromRGBO(245,245,250,1);
+Color kcBackgroundColor = const Color.fromRGBO(245,245,250,1);

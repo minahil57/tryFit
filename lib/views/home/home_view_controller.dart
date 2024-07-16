@@ -15,25 +15,38 @@ class HomeViewController extends GetxController {
   ];
 
   List<ProductModel> products = [
+
+
+
+
     ProductModel(
         name: 'Polo Shirt',
         image: AssetManager.dpImage,
         description: 'Adidas',
-        price: 1000.0),
+        price: 1000.0,
+      tryOnImage: '',
+    ),
     ProductModel(
         name: 'Polo Shirt',
         image: AssetManager.product,
         description: 'Adidas',
-        price: 1000.0),
+        price: 1000.0,
+      tryOnImage: '',
+    ),
     ProductModel(
         name: 'Polo Shirt',
         image: 'assets/images/product2.jpg',
         description: 'Adidas',
-        price: 1000.0),
+        price: 1000.0,
+      tryOnImage: '',
+    ),
     ProductModel(
         name: 'Polo Shirt',
         image: 'assets/images/product3.jpg',
         description: 'Adidas',
-        price: 1000.0),
+        price: 1000.0,
+      tryOnImage: '',
+    ),
   ];
 }
+
