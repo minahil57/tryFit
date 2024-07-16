@@ -14,15 +14,13 @@ class ItemDisplayGrid extends GetView<HomeViewController> {
     Get.put(HomeViewController());
     return StaggeredGrid.count(
       crossAxisCount: 2,
-      mainAxisSpacing: 2,
-      crossAxisSpacing: 20,
+      mainAxisSpacing: 0.5,
+      crossAxisSpacing: 10,
       children: [
 
 
         GestureDetector(
-          onTap: (){
-            Get.to(() => ProductInputScreen());
-          },
+          onTap: controller.onFilterTap,
           child: Container(
             alignment: Alignment.center,
             height: 40.h,
@@ -59,12 +57,11 @@ class ItemDisplayGrid extends GetView<HomeViewController> {
         ...controller.products.map((products) => StaggeredGridTile.count(
               crossAxisCellCount: 1,
               mainAxisCellCount: 2,
+
               child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => ItemDetailView(product: products));
-                  },
+                  onTap: () => controller.onProductTap(products),
                   child: GridItem(products: products)),
-            )),
+            ),),
       ],
     );
   }
