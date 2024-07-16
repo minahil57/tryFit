@@ -1,4 +1,5 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:try_fit/views/home/home_view_controller.dart';
 import 'package:try_fit/views/home/widgets/brand_list.dart';
@@ -16,26 +17,41 @@ class HomeView extends GetView<HomeViewController> {
     Get.put(HomeViewController());
     return Scaffold(
         backgroundColor: kcBackgroundColor,
-        body: const Column(
-          children: [
-            TopContainer(),
-
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child:  Column(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              TopContainer(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Column(
                   children: [
                     BrandList(),
                     verticalSpaceMedium,
                     TabBarHomeView(),
                     verticalSpaceMedium,
                     // GridItem(),
-                    ItemDisplayGrid(),
+                    //ItemDisplayGrid(),
+                    StaggeredGrid.count(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 4,
+                      crossAxisSpacing: 4,
+                      children: const [
+                        StaggeredGridTile.count(
+                          crossAxisCellCount: 1,
+                          mainAxisCellCount: 2,
+                          child: GridItem(),
+                        ),
+                        StaggeredGridTile.count(
+                            crossAxisCellCount: 1,
+                            mainAxisCellCount: 1,
+                            child: GridItem()),
+                      ],
+                    )
                   ],
                 ),
               ),
-
-
-          ],
+            ],
+          ),
         ));
   }
 }
