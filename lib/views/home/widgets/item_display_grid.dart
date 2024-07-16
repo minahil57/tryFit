@@ -12,56 +12,57 @@ class ItemDisplayGrid extends StatelessWidget {
       children: [
         Column(
           children: [
-            SizedBox(
-              width: Get.width * 0.4,
-              child: Column(
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    height: 40.h,
-                    width: Get.width * 0.4,
-                    decoration: BoxDecoration(
-                      color: kcPrimaryColor,
-                      borderRadius: BorderRadius.circular(50.r),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          'Filters',
-                          style: getMediumStyle(
-                              fontWeight: FontWeight.w400, color: kcWhitecolor),
-                        ),
-                        Container(
-                          height: 40.h,
-                          decoration: const BoxDecoration(
-                            color: kcWhitecolor,
-                            shape: BoxShape.circle,
+           SizedBox(
+                width: Get.width * 0.4,
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      height: 40.h,
+                      width: Get.width * 0.4,
+                      decoration: BoxDecoration(
+                        color: kcPrimaryColor,
+                        borderRadius: BorderRadius.circular(50.r),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            'Filters',
+                            style: getMediumStyle(
+                                fontWeight: FontWeight.w400, color: kcWhitecolor),
                           ),
-                          child: Icon(
-                            Icons.filter_alt_outlined,
-                            color: kcPrimaryColor,
-                            size: 18.dg,
+                          Container(
+                            height: 40.h,
+                            decoration: BoxDecoration(
+                              color: kcWhitecolor,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.filter_alt_outlined,
+                              color: kcPrimaryColor,
+                              size: 18.dg,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  verticalSpaceMedium,
-
-                  GridItem(),
-                  // Expanded(
-                  //   child: ListView.builder(
-                  //     shrinkWrap: true,
-                  //     itemCount: 10,
-                  //     itemBuilder: (context, index) {
-                  //       return GridItem();
-                  //     },
-                  //   ),
-                  // ),
-                ],
+                    verticalSpaceMedium,
+              
+                    GridItem(),
+                    // Expanded(
+                    //   child: ListView.builder(
+                    //     shrinkWrap: true,
+                    //     itemCount: 10,
+                    //     itemBuilder: (context, index) {
+                    //       return GridItem();
+                    //     },
+                    //   ),
+                    // ),
+                  ],
+                ),
               ),
-            ),
+
           ],
         ),
         horizontalSpaceMedium,
