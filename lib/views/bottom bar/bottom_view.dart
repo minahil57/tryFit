@@ -9,7 +9,6 @@ class BottomNavBar extends GetView<NavBarController> {
 
   @override
   Widget build(BuildContext context) {
-
     Get.put(NavBarController());
     return Scaffold(
       backgroundColor: kcBackgroundColor,
@@ -22,7 +21,7 @@ class BottomNavBar extends GetView<NavBarController> {
         },
         children: const [
           HomeView(),
-          ItemDetailView(),
+          //ItemDetailView(),
         ],
         //controller: controller.pageController,
       ),
@@ -34,10 +33,8 @@ class BottomNavBar extends GetView<NavBarController> {
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          unselectedIconTheme:
-              const IconThemeData(color: kcBlackColor),
-          selectedIconTheme:
-              const IconThemeData(color: kcPrimaryColor),
+          unselectedIconTheme: const IconThemeData(color: kcBlackColor),
+          selectedIconTheme: const IconThemeData(color: kcPrimaryColor),
           selectedItemColor: kcPrimaryColor,
           unselectedItemColor: kcBlackColor,
           onTap: (int value) {
