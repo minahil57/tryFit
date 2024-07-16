@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
-
 
 TextStyle getBoldStyle({
   Color color = kcBlackColor,
@@ -16,6 +14,7 @@ TextStyle getBoldStyle({
     fontWeight: fontWeight,
   );
 }
+
 TextStyle getRegularBoldStyle({
   Color color = kcBlackColor,
   double fontSize = 24,
@@ -31,7 +30,6 @@ TextStyle getRegularBoldStyle({
 TextStyle getMediumStyle({
   Color color = kcBlackColor,
   double fontSize = 14,
-
 }) {
   return GoogleFonts.poppins(
     fontSize: fontSize,

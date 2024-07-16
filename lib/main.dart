@@ -1,6 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:try_fit/core/imports/core_imports.dart';
+import 'package:try_fit/views/home/home_view.dart';
+import 'package:try_fit/views/splash/splash_view.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
@@ -10,15 +17,34 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(360, 640),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      useInheritedMediaQuery: false,
+      builder: (context, child) => GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: GetMaterialApp(
+          title: 'TryFits',
+          debugShowCheckedModeBanner: false,
+          themeMode: ThemeMode.light,
+          theme: ThemeData(
+            primaryColor: kcPrimaryColor,
+            appBarTheme: AppBarTheme(
+                color: Colors.white,
+                elevation: 0,
+                titleTextStyle: getRegularStyle()),
+            scaffoldBackgroundColor: kcWhitecolor,
+            textTheme: Theme.of(context).textTheme.apply(
+                  bodyColor: Colors.black,
+                  displayColor: Colors.black,
+                ),
+          ),
+          builder: EasyLoading.init(),
+          home: const SplashView(),
+        ),
       ),
-
     );
   }
 }
-
