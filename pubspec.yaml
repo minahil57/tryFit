@@ -32,7 +32,8 @@ dependencies:
   image_picker: ^1.1.2
     #  https://pub.dev/packages/flutter_svg
   flutter_svg: ^2.0.10+1
-  
+
+  flutter_staggered_grid_view: ^0.7.0
 
 
 
@@ -47,10 +48,9 @@ flutter:
 
   uses-material-design: true
 
-  
   assets:
     - assets/
+    - assets/logo/
+    - assets/icons/
     - assets/images/
-
-
 
