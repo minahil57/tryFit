@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:try_fit/core/imports/core_imports.dart';
 import 'package:try_fit/views/bottom%20bar/bottom_controller.dart';
 import 'package:try_fit/views/home/home_view.dart';
+import 'package:try_fit/views/item_detail/item_detail_view.dart';
 
 class BottomNavBar extends GetView<NavBarController> {
   const BottomNavBar({super.key});
@@ -21,6 +22,7 @@ class BottomNavBar extends GetView<NavBarController> {
         },
         children: const [
           HomeView(),
+          ItemDetailView(),
         ],
         //controller: controller.pageController,
       ),
