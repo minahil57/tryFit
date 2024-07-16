@@ -8,9 +8,8 @@ class TopContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 52),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 42),
       width: Get.width,
-      height: Get.height * 0.35,
       decoration: BoxDecoration(
         color: kcPrimaryColor,
         borderRadius: BorderRadius.only(
@@ -38,15 +37,13 @@ class TopContainer extends StatelessWidget {
             Center(
               child: Container(
                 alignment: Alignment.center,
-                height: 60.h,
-                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 width: Get.width * 0.82,
                 decoration: BoxDecoration(
                   color: kcWhitecolor,
                   borderRadius: BorderRadius.circular(50.r),
                 ),
                 child: Row(
-
                   children: [
                     Container(
                       decoration: BoxDecoration(
@@ -55,7 +52,6 @@ class TopContainer extends StatelessWidget {
                           width: 4,
                         ),
                         shape: BoxShape.circle,
-
                       ),
                       child: CircleAvatar(
                         maxRadius: 29,
@@ -78,8 +74,7 @@ class TopContainer extends StatelessWidget {
                             ),
                             Text(
                               '200K',
-                              style: getRegularStyle(
-                                  ),
+                              style: getRegularStyle(),
                             ),
                           ],
                         ),
@@ -96,8 +91,7 @@ class TopContainer extends StatelessWidget {
                             ),
                             Text(
                               '1.9M',
-                              style: getRegularStyle(
-                              ),
+                              style: getRegularStyle(),
                             ),
                           ],
                         ),
@@ -114,15 +108,12 @@ class TopContainer extends StatelessWidget {
                             ),
                             Text(
                               '129',
-                              style: getRegularStyle(
-                              ),
+                              style: getRegularStyle(),
                             ),
                           ],
                         ),
                       ],
                     ),
-
-
                   ],
                 ),
               ),

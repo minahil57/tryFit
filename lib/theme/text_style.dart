@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:try_fit/core/imports/external_imports.dart';
 
 import 'app_colors.dart';
-
 
 TextStyle getBoldStyle({
   Color color = kcBlackColor,
@@ -12,14 +10,13 @@ TextStyle getBoldStyle({
   FontWeight fontWeight = FontWeight.w700,
 }) {
   return GoogleFonts.duruSans(
-    fontSize: fontSize.sp,
-    color: color,
-    fontWeight: fontWeight,
-    letterSpacing: -0.5,
-    wordSpacing: -0.5
-
-  );
+      fontSize: fontSize.sp,
+      color: color,
+      fontWeight: fontWeight,
+      letterSpacing: -0.5,
+      wordSpacing: -0.5);
 }
+
 TextStyle getRegularBoldStyle({
   Color color = kcBlackColor,
   double fontSize = 24,
@@ -36,7 +33,6 @@ TextStyle getMediumStyle({
   Color color = kcBlackColor,
   double fontSize = 14,
   FontWeight fontWeight = FontWeight.w500,
-
 }) {
   return GoogleFonts.poppins(
     fontSize: fontSize.sp,
