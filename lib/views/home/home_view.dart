@@ -14,30 +14,28 @@ class HomeView extends GetView<HomeViewController> {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeViewController());
-    return SafeArea(
-      child: Scaffold(
-          backgroundColor: kcBackgroundColor,
-          body: const Column(
-            children: [
-              TopContainer(),
+    return Scaffold(
+        backgroundColor: kcBackgroundColor,
+        body: const Column(
+          children: [
+            TopContainer(),
 
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                child:  Column(
-                    children: [
-                      BrandList(),
-                      verticalSpaceMedium,
-                      TabBarHomeView(),
-                      verticalSpaceMedium,
-                      // GridItem(),
-                      ItemDisplayGrid(),
-                    ],
-                  ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child:  Column(
+                  children: [
+                    BrandList(),
+                    verticalSpaceMedium,
+                    TabBarHomeView(),
+                    verticalSpaceMedium,
+                    // GridItem(),
+                    ItemDisplayGrid(),
+                  ],
                 ),
+              ),
 
 
-            ],
-          )),
-    );
+          ],
+        ));
   }
 }

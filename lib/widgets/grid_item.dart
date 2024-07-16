@@ -27,8 +27,8 @@ class GridItem extends StatelessWidget {
           top: 10,
           child: Icon(
             Icons.add,
-            color: Colors.white,
-            size: 30,
+            color: kcWhitecolor,
+            size: 24,
           ),
         ),
         // Heart shape container
@@ -36,16 +36,16 @@ class GridItem extends StatelessWidget {
           right: 10,
           top: 10,
           child: Container(
-            width: 40,
-            height: 40,
+            width: 24,
+            height: 24,
             decoration: const BoxDecoration(
-              color: Colors.red,
+              color: kcWhitecolor,
               shape: BoxShape.circle,
             ),
             child: const Icon(
-              Icons.favorite,
-              color: Colors.white,
-              size: 24,
+              Icons.favorite_border,
+              color: kcPrimaryColor,
+              size: 16,
             ),
           ),
         ),

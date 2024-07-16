@@ -8,9 +8,9 @@ class TopContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 52),
       width: Get.width,
-      height: Get.height * 0.3,
+      height: Get.height * 0.35,
       decoration: BoxDecoration(
         color: kcPrimaryColor,
         borderRadius: BorderRadius.only(
@@ -39,7 +39,7 @@ class TopContainer extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 height: 60.h,
-                padding: EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
                 width: Get.width * 0.82,
                 decoration: BoxDecoration(
                   color: kcWhitecolor,
