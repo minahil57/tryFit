@@ -17,11 +17,12 @@ class HomeViewController extends GetxController{
   ];
 
   List<ProductModel> products = [
-    ProductModel(name: 'Polo Shirt', image: 'assets/images/adidas.png', description: 'Adidas', price: 1000.0),
-    ProductModel(name: 'Rounded Neck T-Shirt', image: 'assets/images/reebok.png', description: 'Reebok', price: 500.0),
-    ProductModel(name: 'Pink Short Tank Top', image: 'assets/images/puma.png', description: 'Puma', price:1200.0),
-    ProductModel(name: 'Black Long Coat', image: 'assets/images/vans.png', description: 'Vans', price: 1300.0),
-    ProductModel(name: 'Formal Shirt', image: 'assets/images/puma.png', description: 'Puma', price: 1200.0),
-    ProductModel(name: '', image: 'assets/images/vans.png', description: 'Vans', price: 1400.0),
+    ProductModel(name: 'Polo Shirt', image: 'assets/images/adidas.png', description: 'Adidas', price: 1000.0,tryOnImage: ''),
+    ProductModel(name: 'Rounded Neck T-Shirt', image: 'assets/images/reebok.png', description: 'Reebok', price: 500.0,tryOnImage: ''),
+    ProductModel(name: 'Pink Short Tank Top', image: 'assets/images/puma.png', description: 'Puma', price:1200.0,tryOnImage: ''),
+    ProductModel(name: 'Black Long Coat', image: 'assets/images/vans.png', description: 'Vans', price: 1300.0,tryOnImage: ''),
+    ProductModel(name: 'Formal Shirt', image: 'assets/images/puma.png', description: 'Puma', price: 1200.0,tryOnImage: ''),
+    ProductModel(name: '', image: 'assets/images/vans.png', description: 'Vans', price: 1400.0,tryOnImage: ''),
   ];
 }
+
