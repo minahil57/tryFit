@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:try_fit/core/imports/core_imports.dart';
@@ -25,7 +24,7 @@ class SplashView extends StatelessWidget {
             const SizedBox.shrink(),
             AnimatedAlign(
               alignment: Alignment.center,
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
               child: Image.asset(
                 AssetManager.logoGif,
                 height: 200.h,

@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:try_fit/core/imports/core_imports.dart';
 import 'package:try_fit/core/imports/external_imports.dart';
-import 'package:try_fit/theme/app_colors.dart';
-import 'package:try_fit/theme/text_style.dart';
 
 class ItemDetailView extends StatelessWidget {
   const ItemDetailView({super.key});
@@ -221,7 +218,7 @@ class ItemDetailView extends StatelessWidget {
                               style: getRegularStyle(),
                             ),
                             verticalSpaceSmall,
-                            Divider(),
+                            const Divider(),
                             verticalSpaceSmall,
                              Row(
                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -268,14 +265,13 @@ class ItemDetailView extends StatelessWidget {
                           onPressed: () {
                             // Add to cart action here
                           },
-                          child: const Text("Try On"),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                             foregroundColor: kcWhitecolor,
-
-                            padding:  EdgeInsets.symmetric(
+                            padding:  const EdgeInsets.symmetric(
                                 horizontal: 140, vertical: 15),
                           ),
+                          child: const Text("Try On"),
                         ),
                       ),
                       const SizedBox(height: 20),

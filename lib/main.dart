@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:try_fit/theme/app_theme.dart';
-import 'package:try_fit/views/start_up/startup_view.dart';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

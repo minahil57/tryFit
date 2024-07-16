@@ -34,7 +34,7 @@ class ItemDisplayGrid extends StatelessWidget {
                           ),
                           Container(
                             height: 40.h,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: kcWhitecolor,
                               shape: BoxShape.circle,
                             ),
@@ -49,7 +49,7 @@ class ItemDisplayGrid extends StatelessWidget {
                     ),
                     verticalSpaceMedium,
               
-                    GridItem(),
+                    const GridItem(),
                     // Expanded(
                     //   child: ListView.builder(
                     //     shrinkWrap: true,
@@ -68,9 +68,9 @@ class ItemDisplayGrid extends StatelessWidget {
         horizontalSpaceMedium,
         Column(
           children: [
-            Container(
+            SizedBox(
               width: Get.width * 0.4,
-              child: Column(
+              child: const Column(
                 children: [
                   GridItem(),
                   // Expanded(
