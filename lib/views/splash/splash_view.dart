@@ -24,7 +24,7 @@ class SplashView extends StatelessWidget {
               const SizedBox.shrink(),
               AnimatedAlign(
                 alignment: Alignment.center,
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 child: Image.asset(
                   AssetManager.logoGif,
                   height: 200.h,

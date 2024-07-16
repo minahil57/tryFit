@@ -17,7 +17,7 @@ class HomeView extends GetView<HomeViewController> {
     Get.put(HomeViewController());
     return Scaffold(
         backgroundColor: kcBackgroundColor,
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(
             children: [
               TopContainer(),
@@ -29,24 +29,7 @@ class HomeView extends GetView<HomeViewController> {
                     verticalSpaceMedium,
                     TabBarHomeView(),
                     verticalSpaceMedium,
-                    // GridItem(),
-                    //ItemDisplayGrid(),
-                    StaggeredGrid.count(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 4,
-                      crossAxisSpacing: 4,
-                      children: const [
-                        StaggeredGridTile.count(
-                          crossAxisCellCount: 1,
-                          mainAxisCellCount: 2,
-                          child: GridItem(),
-                        ),
-                        StaggeredGridTile.count(
-                            crossAxisCellCount: 1,
-                            mainAxisCellCount: 1,
-                            child: GridItem()),
-                      ],
-                    )
+                    ItemDisplayGrid(),
                   ],
                 ),
               ),

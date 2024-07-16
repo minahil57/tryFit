@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:try_fit/core/imports/core_imports.dart';
 import 'package:try_fit/core/imports/external_imports.dart';
-import 'package:try_fit/theme/app_colors.dart';
-import 'package:try_fit/theme/text_style.dart';
+import 'package:try_fit/models/product_model.dart';
 
 class ItemDetailView extends StatelessWidget {
-  const ItemDetailView({super.key});
+  final ProductModel product;
+  const ItemDetailView({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class ItemDetailView extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: Get.height * 0.85,
+            expandedHeight: Get.height * 0.7,
             floating: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
@@ -22,34 +21,8 @@ class ItemDetailView extends StatelessWidget {
                 fit: StackFit.expand,
                 children: [
                   Image.asset(
-                    AssetManager.dpImage, // replace with your image asset
+                    product.image, // replace with your image asset
                     fit: BoxFit.cover,
-                  ),
-                  Positioned(
-                    top: 40,
-                    left: 16,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.black54,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_back, color: Colors.white),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 40,
-                    right: 16,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.black54,
-                      child: IconButton(
-                        icon: const Icon(Icons.favorite, color: Colors.white),
-                        onPressed: () {
-                          // Add favorite action here
-                        },
-                      ),
-                    ),
                   ),
                 ],
               ),
@@ -61,7 +34,7 @@ class ItemDetailView extends StatelessWidget {
                 gradient: SweepGradient(
                   center: Alignment.topLeft,
                   colors: [
-                    kcPrimaryColor.withOpacity(0.1),
+                    kcBackgroundColor,
                     Colors.white,
                     Colors.white,
                   ],
@@ -160,7 +133,7 @@ class ItemDetailView extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "\$490.00",
+                                  "\$ ${product.price}",
                                   style: getBoldStyle(),
                                 ),
                                 Row(
@@ -193,13 +166,12 @@ class ItemDetailView extends StatelessWidget {
                           ],
                         ),
                       ),
-
-
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 20),
                         margin: const EdgeInsets.symmetric(
-                            horizontal: 20,),
+                          horizontal: 20,
+                        ),
                         decoration: const BoxDecoration(
                           color: kcWhitecolor,
                           borderRadius: BorderRadius.all(
@@ -209,60 +181,57 @@ class ItemDetailView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                             Text(
+                            Text(
                               "RAINY CASUAL CLOTHES",
-                              style: getBoldStyle(
-                                fontSize: 16
-                              ),
+                              style: getBoldStyle(fontSize: 16),
                             ),
                             verticalSpaceSmall,
-                             Text(
+                            Text(
                               "RAIN CASUAL WEAR MENS SHIRTS - BUY RAIN CASUAL WEAR MENS SHIRTS. DESIGNED BY OUR BEST DESIGNERS!",
                               style: getRegularStyle(),
                             ),
                             verticalSpaceSmall,
                             Divider(),
                             verticalSpaceSmall,
-                             Row(
-                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                               children: [
-                                 Text(
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
                                   "Fabric",
                                   style: getBoldStyle(
                                     fontSize: 12,
                                   ),
-                                                             ),
-                                 Text(
-                                   "Cotton",
-                                   style: getBoldStyle(
-                                     fontSize: 12,
-                                   ),
-                                 ),
-                               ],
-                             ),
+                                ),
+                                Text(
+                                  "Cotton",
+                                  style: getBoldStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
                             const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Country Origin",
-                              style: getBoldStyle(
-                                fontSize: 12,
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Country Origin",
+                                  style: getBoldStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "Pakistan",
+                                  style: getBoldStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
                             ),
-                            Text(
-                              "Pakistan",
-                              style: getBoldStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
                           ],
                         ),
                       ),
-
-                     verticalSpaceSmall,
+                      verticalSpaceSmall,
                       Center(
                         child: ElevatedButton(
                           onPressed: () {
@@ -272,8 +241,7 @@ class ItemDetailView extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                             foregroundColor: kcWhitecolor,
-
-                            padding:  EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 140, vertical: 15),
                           ),
                         ),
