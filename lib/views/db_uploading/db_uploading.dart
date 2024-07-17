@@ -142,7 +142,7 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
         price == 0.0 ||
         imageFile == null ||
         tryOnImageFile == null) {
-     log('error');
+      log('error');
       return;
     }
 
@@ -160,7 +160,8 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
     );
 
     // Upload product data to Firestore
-    await FirebaseFirestore.instance.collection('products').add(product.toJson());
+    await FirebaseFirestore.instance.collection('products').add(
+        product.toJson());
 
     // Optionally, navigate to another screen or show success message
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -176,7 +177,9 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
     // and configure Firebase Storage in your Firebase project
 
     // Example path: 'products/images/image1.jpg'
-    String filePath = 'products/images/${DateTime.now().millisecondsSinceEpoch}.jpg';
+    String filePath = 'products/images/${DateTime
+        .now()
+        .millisecondsSinceEpoch}.jpg';
     log('Uploading.....');
     // Upload file to Firebase Storage
     final storageRef = FirebaseStorage.instance.ref().child(filePath);
