@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "450575375516",
-    "project_id": "tryfit-fe5ff",
-    "storage_bucket": "tryfit-fe5ff.appspot.com"
+    "project_number": "654445929366",
+    "project_id": "tryfit123-fd266",
+    "storage_bucket": "tryfit123-fd266.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:450575375516:android:6da631f0e843630e43a159",
-        "android_client_info": {
-          "package_name": "com.example.tryFit"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyD2zbhgvtPdkUD4xPy8_8Tk-jFTn5W6E0Y"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:450575375516:android:2d59e23c31c8269143a159",
+        "mobilesdk_app_id": "1:654445929366:android:fb8180aefeb1ee29f8b3b7",
         "android_client_info": {
           "package_name": "com.example.try_fit"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD2zbhgvtPdkUD4xPy8_8Tk-jFTn5W6E0Y"
+          "current_key": "AIzaSyAehoMWU0fyFcIirXTaVt__80T4U81m6_E"
         }
       ],
       "services": {

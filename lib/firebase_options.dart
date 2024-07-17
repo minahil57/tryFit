@@ -48,19 +48,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD2zbhgvtPdkUD4xPy8_8Tk-jFTn5W6E0Y',
-    appId: '1:450575375516:android:2d59e23c31c8269143a159',
-    messagingSenderId: '450575375516',
-    projectId: 'tryfit-fe5ff',
-    storageBucket: 'tryfit-fe5ff.appspot.com',
+    apiKey: 'AIzaSyAehoMWU0fyFcIirXTaVt__80T4U81m6_E',
+    appId: '1:654445929366:android:fb8180aefeb1ee29f8b3b7',
+    messagingSenderId: '654445929366',
+    projectId: 'tryfit123-fd266',
+    storageBucket: 'tryfit123-fd266.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAy9vITqOvOFHTVVwFpvsJcuetU1slOjq0',
-    appId: '1:450575375516:ios:579e41704174c38e43a159',
-    messagingSenderId: '450575375516',
-    projectId: 'tryfit-fe5ff',
-    storageBucket: 'tryfit-fe5ff.appspot.com',
+    apiKey: 'AIzaSyAR9cQffP89aby3RQ6DwEOVRiBldxXc54I',
+    appId: '1:654445929366:ios:3c7f4ae1fcae2985f8b3b7',
+    messagingSenderId: '654445929366',
+    projectId: 'tryfit123-fd266',
+    storageBucket: 'tryfit123-fd266.appspot.com',
     iosBundleId: 'com.example.tryFit',
   );
+
 }
