@@ -17,7 +17,8 @@ class GridItem extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20.r)),
             image: DecorationImage(
-              image: AssetImage(products.image), // Replace with your image URL
+              image:
+                  NetworkImage(products.image), // Replace with your image URL
               fit: BoxFit.cover,
             ),
           ),

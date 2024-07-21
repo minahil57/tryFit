@@ -5,11 +5,11 @@ import '../../../core/imports/external_imports.dart';
 
 class BackgroundImage extends StatelessWidget {
   final ProductModel product;
-  const BackgroundImage({super.key,required this .product});
+  const BackgroundImage({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
-    return  SliverAppBar(
+    return SliverAppBar(
       expandedHeight: Get.height * 0.7,
       floating: false,
       pinned: true,
@@ -17,7 +17,7 @@ class BackgroundImage extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset(
+            Image.network(
               product.image, // replace with your image asset
               fit: BoxFit.cover,
             ),

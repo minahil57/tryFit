@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -13,13 +12,24 @@ import 'package:try_fit/views/splash/splash_view.dart';
 
 import 'firebase_options.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final response = await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   log(response.toString());
+  EasyLoading.init();
+  EasyLoading.instance
+    //..textStyle = getRegularStyle(fontSize: 12, color: Colors.white)
+    ..loadingStyle = EasyLoadingStyle.custom
+    ..backgroundColor = kcPrimaryColor
+    ..radius = 12
+    ..indicatorSize = 30
+    ..textColor = Colors.white
+    ..indicatorColor = Colors.white
+    ..userInteractions = false
+    ..displayDuration = const Duration(seconds: 1)
+    ..dismissOnTap = false;
 
   runApp(const MyApp());
 }
@@ -30,10 +40,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return ScreenUtilInit(
       designSize: const Size(360, 640),
-      minTextAdapt: true,
+      //minTextAdapt: true,
       splitScreenMode: true,
       useInheritedMediaQuery: false,
       builder: (context, child) => GestureDetector(
@@ -44,7 +53,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.light,
           theme: buildCustomTheme(),
-           builder: EasyLoading.init(),
+          builder: EasyLoading.init(),
           home: const SplashView(),
         ),
       ),

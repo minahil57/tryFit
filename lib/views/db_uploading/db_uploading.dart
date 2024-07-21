@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:try_fit/core/imports/external_imports.dart';
 import 'package:try_fit/models/product_model.dart';
 
 class ProductInputScreen extends StatefulWidget {
@@ -99,8 +100,7 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
                     ),
                   ],
                 ),
-                if (imageFile != null)
-                  Image.file(imageFile!, height: 200),
+                if (imageFile != null) Image.file(imageFile!, height: 200),
               ],
             ),
             SizedBox(height: 16.0),
@@ -160,14 +160,12 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
     );
 
     // Upload product data to Firestore
-    await FirebaseFirestore.instance.collection('products').add(
-        product.toJson());
+    await FirebaseFirestore.instance
+        .collection('products')
+        .add(product.toJson());
 
     // Optionally, navigate to another screen or show success message
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Product added successfully!'),
-      duration: Duration(seconds: 2),
-    ));
+    Get.snackbar('test', 'product uploaded successfully');
   }
 
   Future<String> _uploadImage(File imageFile) async {
@@ -177,9 +175,8 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
     // and configure Firebase Storage in your Firebase project
 
     // Example path: 'products/images/image1.jpg'
-    String filePath = 'products/images/${DateTime
-        .now()
-        .millisecondsSinceEpoch}.jpg';
+    String filePath =
+        'products/images/${DateTime.now().millisecondsSinceEpoch}.jpg';
     log('Uploading.....');
     // Upload file to Firebase Storage
     final storageRef = FirebaseStorage.instance.ref().child(filePath);

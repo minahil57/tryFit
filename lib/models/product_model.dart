@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class ProductModel {
   final String name;
   final String image;
@@ -12,7 +14,9 @@ class ProductModel {
     required this.price,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) {
+  factory ProductModel.fromsnapshot(
+      DocumentSnapshot<Map<String, dynamic>> snapshot) {
+    final json = snapshot.data()!;
     return ProductModel(
       tryOnImage: json['tryOn_image'],
       name: json['name'],
@@ -31,3 +35,17 @@ class ProductModel {
     };
   }
 }
+
+//  factory ReservationsModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> snapshot){ 
+//     final data = snapshot.data();
+//     return ReservationsModel(
+//       id: data?['id'],
+//       phone: data?['phone'],
+//       name: data?['name'],
+//       date: data?['date'],
+//       type: data?['bookingType'],
+//       submittedDate: data?['submittedDate'],
+//       submittedTime: data?['submittedTime'],
+//       //testDate: data?['testDate']
+//     );
+//    }

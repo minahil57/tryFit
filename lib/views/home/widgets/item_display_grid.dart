@@ -12,57 +12,57 @@ class ItemDisplayGrid extends GetView<HomeViewController> {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeViewController());
-    return StaggeredGrid.count(
-      crossAxisCount: 2,
-      mainAxisSpacing: 0.5,
-      crossAxisSpacing: 10,
-      children: [
-
-
-        GestureDetector(
-          onTap: controller.onFilterTap,
-          child: Container(
-            alignment: Alignment.center,
-            height: 40.h,
-            width: Get.width * 0.4,
-            decoration: BoxDecoration(
-              color: kcPrimaryColor,
-              borderRadius: BorderRadius.circular(50.r),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  'Filters',
-                  style: getMediumStyle(
-                      fontWeight: FontWeight.w400, color: kcWhitecolor),
-                ),
-                Container(
-                  height: 40.h,
-                  decoration: const BoxDecoration(
-                    color: kcWhitecolor,
-                    shape: BoxShape.circle,
+    return Obx(
+      () => StaggeredGrid.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 0.5,
+        crossAxisSpacing: 10,
+        children: [
+          GestureDetector(
+            onTap: controller.onFilterTap,
+            child: Container(
+              alignment: Alignment.center,
+              height: 40.h,
+              width: Get.width * 0.4,
+              decoration: BoxDecoration(
+                color: kcPrimaryColor,
+                borderRadius: BorderRadius.circular(50.r),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    'Filters',
+                    style: getMediumStyle(
+                        fontWeight: FontWeight.w400, color: kcWhitecolor),
                   ),
-                  child: Icon(
-                    Icons.filter_alt_outlined,
-                    color: kcPrimaryColor,
-                    size: 18.dg,
+                  Container(
+                    height: 40.h,
+                    decoration: const BoxDecoration(
+                      color: kcWhitecolor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.filter_alt_outlined,
+                      color: kcPrimaryColor,
+                      size: 18.dg,
+                    ),
                   ),
-
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        ...controller.products.map((products) => StaggeredGridTile.count(
+          ...controller.products.map(
+            (products) => StaggeredGridTile.count(
               crossAxisCellCount: 1,
               mainAxisCellCount: 2,
-
               child: GestureDetector(
                   onTap: () => controller.onProductTap(products),
                   child: GridItem(products: products)),
-            ),),
-      ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
