@@ -2,11 +2,11 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:try_fit/core/imports/external_imports.dart';
 import 'package:try_fit/models/product_model.dart';
+import 'package:try_fit/services/pic_upload.dart';
 
 class ProductInputScreen extends StatefulWidget {
   const ProductInputScreen({super.key});
@@ -32,6 +32,19 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
         if (source == ImageSource.gallery) {
           imageFile = File(pickedFile.path);
         } else {
+          imageFile = File(pickedFile.path);
+        }
+      }
+    });
+  }
+  Future<void> _pickTryOnImage(ImageSource source) async {
+    final pickedFile = await picker.pickImage(source: source);
+
+    setState(() {
+      if (pickedFile != null) {
+        if (source == ImageSource.gallery) {
+          tryOnImageFile = File(pickedFile.path);
+        } else {
           tryOnImageFile = File(pickedFile.path);
         }
       }
@@ -42,10 +55,10 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Product'),
+        title: const Text('Add Product'),
         actions: [
           IconButton(
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
             onPressed: () {
               _saveProduct();
             },
@@ -53,76 +66,76 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
               controller: nameController,
-              decoration: InputDecoration(labelText: 'Name'),
+              decoration: const InputDecoration(labelText: 'Name'),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextFormField(
               controller: descriptionController,
-              decoration: InputDecoration(labelText: 'Description'),
+              decoration: const InputDecoration(labelText: 'Description'),
               maxLines: 3,
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextFormField(
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
-              decoration: InputDecoration(labelText: 'Price'),
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              decoration: const InputDecoration(labelText: 'Price'),
               onChanged: (value) {
                 setState(() {
                   price = double.tryParse(value) ?? 0.0;
                 });
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Upload Image:'),
-                SizedBox(height: 8.0),
+                const Text('Upload Image:'),
+                const SizedBox(height: 8.0),
                 Row(
                   children: [
                     ElevatedButton(
                       onPressed: () {
                         _pickImage(ImageSource.gallery);
                       },
-                      child: Text('Select from Gallery'),
+                      child: const Text('Select from Gallery'),
                     ),
-                    SizedBox(width: 16.0),
+                    const SizedBox(width: 16.0),
                     ElevatedButton(
                       onPressed: () {
                         _pickImage(ImageSource.camera);
                       },
-                      child: Text('Take a Photo'),
+                      child: const Text('Take a Photo'),
                     ),
                   ],
                 ),
                 if (imageFile != null) Image.file(imageFile!, height: 200),
               ],
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Upload Try-On Image:'),
-                SizedBox(height: 8.0),
+                const Text('Upload Try-On Image:'),
+                const SizedBox(height: 8.0),
                 Row(
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        _pickImage(ImageSource.gallery);
+                        _pickTryOnImage(ImageSource.gallery);
                       },
-                      child: Text('Select from Gallery'),
+                      child: const Text('Select from Gallery'),
                     ),
-                    SizedBox(width: 16.0),
+                    const SizedBox(width: 16.0),
                     ElevatedButton(
                       onPressed: () {
-                        _pickImage(ImageSource.camera);
+                        _pickTryOnImage(ImageSource.camera);
                       },
-                      child: Text('Take a Photo'),
+                      child: const Text('Take a Photo'),
                     ),
                   ],
                 ),
@@ -146,9 +159,9 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
       return;
     }
 
-    // Upload images to Firebase Storage
-    final imageUrl = await _uploadImage(imageFile!);
-    final tryOnImageUrl = await _uploadImage(tryOnImageFile!);
+    final PicUpload uploadImageOnDB = PicUpload();
+    final imageUrl = await uploadImageOnDB.uploadImage(imageFile!);
+    final tryOnImageUrl = await uploadImageOnDB.uploadImage(tryOnImageFile!);
 
     // Create ProductModel instance
     ProductModel product = ProductModel(
@@ -168,23 +181,5 @@ class _ProductInputScreenState extends State<ProductInputScreen> {
     Get.snackbar('test', 'product uploaded successfully');
   }
 
-  Future<String> _uploadImage(File imageFile) async {
-    // Example function to upload image to Firebase Storage
-    // Replace with your Firebase Storage upload logic
-    // Make sure to include Firebase Storage dependency in pubspec.yaml
-    // and configure Firebase Storage in your Firebase project
 
-    // Example path: 'products/images/image1.jpg'
-    String filePath =
-        'products/images/${DateTime.now().millisecondsSinceEpoch}.jpg';
-    log('Uploading.....');
-    // Upload file to Firebase Storage
-    final storageRef = FirebaseStorage.instance.ref().child(filePath);
-    await storageRef.putFile(imageFile);
-
-    // Get download URL
-    String downloadURL = await storageRef.getDownloadURL();
-    log('Uploaded');
-    return downloadURL;
-  }
 }

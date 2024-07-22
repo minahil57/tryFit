@@ -1,17 +1,19 @@
 import 'package:try_fit/core/imports/external_imports.dart';
 import 'package:try_fit/models/product_model.dart';
+import 'package:try_fit/views/item_detail/item_detail_controller.dart';
 import 'package:try_fit/views/item_detail/widgets/product_description_container.dart';
 import 'package:try_fit/views/item_detail/widgets/product_detail_container.dart';
 
 import '../../../core/imports/core_imports.dart';
 
-class TopContainer extends StatelessWidget {
+class TopContainer extends GetView<ItemDetailController> {
   final ProductModel product;
-  const TopContainer({super.key,required this.product});
+  const TopContainer({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
-    return   SliverToBoxAdapter(
+    Get.put(ItemDetailController());
+    return SliverToBoxAdapter(
       child: Container(
         decoration: BoxDecoration(
           gradient: SweepGradient(
@@ -42,21 +44,21 @@ class TopContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 verticalSpaceMedium,
-                ProductDetailContainer(product: product,),
+                ProductDetailContainer(
+                  product: product,
+                ),
                 verticalSpaceSmall,
                 const ProductDescriptionContainer(),
                 verticalSpaceSmall,
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      // Add to cart action here
+                      controller.toImagePickerScreen(product);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       foregroundColor: kcWhitecolor,
-
-                      padding:  const EdgeInsets.symmetric(
-
+                      padding: const EdgeInsets.symmetric(
                           horizontal: 140, vertical: 15),
                     ),
                     child: const Text("Try On"),
