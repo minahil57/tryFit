@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:try_fit/core/imports/core_imports.dart';
+import 'package:try_fit/core/imports/external_imports.dart';
 import 'package:try_fit/services/tryOn_services.dart';
 
 class ImageEditingScreen extends StatefulWidget {
@@ -22,7 +24,6 @@ class _ImageEditingScreenState extends State<ImageEditingScreen> {
   @override
   void initState() {
     super.initState();
-
   }
 
   void _fetchImage() {
@@ -46,6 +47,7 @@ class _ImageEditingScreenState extends State<ImageEditingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kcBackgroundColor,
       appBar: AppBar(
         title: const Text('Image Editing API'),
       ),
@@ -54,7 +56,20 @@ class _ImageEditingScreenState extends State<ImageEditingScreen> {
           future: apiService.editImage(widget.upperBody, widget.lowerBody),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const CircularProgressIndicator(),
+                    verticalSpaceMedium,
+                    Text(
+                      'Generating try-on image...',
+                      style: getRegularStyle(),
+                    ),
+                  ],
+                ),
+              );
             } else if (snapshot.hasError) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -67,26 +82,48 @@ class _ImageEditingScreenState extends State<ImageEditingScreen> {
                 ],
               );
             } else if (snapshot.hasData) {
-              return Image.network(
-                snapshot.data!,
-
-                errorBuilder: (BuildContext context, Object exception,
-                    StackTrace? stackTrace) {
-                  return const Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.error, color: Colors.red, size: 50),
-                        SizedBox(height: 10),
-                        Text(
-                          'Failed to load image',
-                          style: TextStyle(color: Colors.red, fontSize: 16),
-                        ),
-                      ],
+              return Container(
+                margin: EdgeInsets.only(left: 20.h, right: 20.h),
+                height: Get.height * 0.6,
+                width: Get.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.r),
+                    color: kcWhitecolor),
+                child: Column(
+                  children: [
+                    Image.network(
+                      snapshot.data!,
+                      height: Get.height * 0.3,
+                      width: Get.width,
+                      fit: BoxFit.fill,
+                      errorBuilder: (BuildContext context, Object exception,
+                          StackTrace? stackTrace) {
+                        return const Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.error, color: Colors.red, size: 50),
+                              SizedBox(height: 10),
+                              Text(
+                                'Failed to load image',
+                                style:
+                                    TextStyle(color: Colors.red, fontSize: 16),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
-
+                    verticalSpaceMedium,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Text(
+                        'The try-on image was successfully generated, showcasing the selected product seamlessly integrated into a realistic visual. This feature provides users with an accurate preview, enhancing their shopping experience by enabling informed decisions. The advanced technology ensures high-quality rendering, making virtual try-ons both practical and engaging for users.',
+                        style: getRegularStyle(),
+                      ),
+                    )
+                  ],
+                ),
               );
             } else {
               return Column(
