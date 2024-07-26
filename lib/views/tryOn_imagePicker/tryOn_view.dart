@@ -39,7 +39,7 @@ class _TryonViewState extends State<TryonView> {
     if (_image != null) {
       final imageLink = await upload.uploadImage(_image!);
 
-        Get.to(ImageEditingScreen(upperBody: widget.productModel.tryOnImage,lowerBody: imageLink,));
+        // Get.to(ImageEditingScreen(upperBody: widget.productModel.tryOnImage,lowerBody: imageLink,height: imageSize.value!.width.toInt(),));
 
 
 

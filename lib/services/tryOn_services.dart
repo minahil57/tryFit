@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 class ApiService {
   //final Dio _dio = Dio();
 
-  Future<String?> editImage(String upperBody, String lowerBody) async {
+  Future<String?> editImage(String upperBody, String lowerBody,double height,double width) async {
     const String url = 'https://modelslab.com/api/v6/image_editing/fashion';
     final Map<String, dynamic> data = {
       "key": "vwGrHeGLRH9GUEtH4mDlod0JCh09eFZ9o5BQ3NVL2OcJk8FeJKe4ChkGVWuN",

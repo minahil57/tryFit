@@ -68,38 +68,57 @@ class TopContainer extends GetView<ItemDetailController> {
                             child: Column(
                               children: <Widget>[
                                 verticalSpaceSmall,
-                                controller.image != null
-                                    ? Column(
+                                Obx(() {
+                                  if (controller.image.value == null) {
+                                    return controller.isImageLoaded.value
+                                        ? CircularProgressIndicator()
+                                        : GestureDetector(
+                                      onTap: controller.pickImage,
+                                      child: Column(
                                         children: [
                                           Text(
                                             "Select Image",
-                                            style: getRegularStyle(
-                                                color: kcBlackColor),
+                                            style: getRegularStyle(color: kcBlackColor),
                                           ),
                                           verticalSpaceSmall,
-                                          Container(
-                                            width: 300,
-                                            height: 120,
+                                           Image.asset(
+                                            'assets/images/select image.jpg',
+                                            height: 80.h,
+                                          ),
+                                          verticalSpaceSmall,
+
+                                        ],
+                                      ),
+                                    );
+                                  } else {
+                                    return Column(
+                                      children: [
+                                        Text('Tap on the image to reselect' ,style: getRegularStyle(), ),
+                                        verticalSpaceTiny,
+                                        GestureDetector(
+                                          onTap: controller.pickImage,
+                                          child: Container(
+                                            width: 350,
+                                            height: 170,
                                             decoration: BoxDecoration(
                                               borderRadius: BorderRadius.all(
-                                                  Radius.circular(20.r)),
+                                                Radius.circular(20.r),
+                                              ),
                                               image: DecorationImage(
-                                                image: FileImage(controller
-                                                    .image!), // Replace with your image URL
+                                                image: FileImage(controller.image.value!),
                                                 fit: BoxFit.fitHeight,
                                               ),
                                             ),
                                           ),
-                                        ],
-                                      )
-                                    : GestureDetector(
-                                        onTap: controller.pickImage,
-                                        child: Image.asset(
-                                          'assets/images/select image.jpg',
-                                          height: 80.h,
                                         ),
-                                      ),
-                                verticalSpaceLarge,
+
+                                      ],
+                                    );
+                                  }
+                                })
+                                ,
+
+                                verticalSpaceMedium,
                                 CustomButton(
                                     width: 100.w,
                                     text: 'Submit',

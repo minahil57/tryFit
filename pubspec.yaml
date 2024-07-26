@@ -42,6 +42,8 @@ dependencies:
   firebase_storage: ^12.1.1
 #https://pub.dev/packages/image_picker
 image_picker: ^1.1.2
+#https://pub.dev/packages/flutter_image_compress
+flutter_image_compress: ^2.3.0
 
 
 

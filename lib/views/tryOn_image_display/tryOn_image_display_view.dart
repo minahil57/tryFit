@@ -8,8 +8,10 @@ import 'package:try_fit/services/tryOn_services.dart';
 class ImageEditingScreen extends StatefulWidget {
   final String upperBody;
   final String lowerBody;
+  final double height;
+  final double width;
   const ImageEditingScreen(
-      {super.key, required this.upperBody, required this.lowerBody});
+      {super.key, required this.upperBody, required this.lowerBody, required this.height, required this.width});
 
   @override
   _ImageEditingScreenState createState() => _ImageEditingScreenState();
@@ -29,7 +31,7 @@ class _ImageEditingScreenState extends State<ImageEditingScreen> {
   void _fetchImage() {
     setState(() {
       _imageFuture = apiService
-          .editImage(widget.upperBody, widget.lowerBody)
+          .editImage(widget.upperBody, widget.lowerBody,widget.height,widget.width)
           .then((imageUrl) {
         if (_retryCount < _maxRetries &&
             (imageUrl == null || !imageUrl.endsWith('.png'))) {
@@ -49,11 +51,12 @@ class _ImageEditingScreenState extends State<ImageEditingScreen> {
     return Scaffold(
       backgroundColor: kcBackgroundColor,
       appBar: AppBar(
-        title: const Text('Image Editing API'),
+        title:  Text('Virtual Try On',style: getRegularStyle(),),
+        backgroundColor: kcWhitecolor,
       ),
       body: Center(
         child: FutureBuilder<String?>(
-          future: apiService.editImage(widget.upperBody, widget.lowerBody),
+          future: apiService.editImage(widget.upperBody, widget.lowerBody,widget.height,widget.width),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
@@ -85,15 +88,15 @@ class _ImageEditingScreenState extends State<ImageEditingScreen> {
               return Container(
                 margin: EdgeInsets.only(left: 20.h, right: 20.h),
                 height: Get.height * 0.6,
-                width: Get.width,
+                width: Get.width*0.6,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
-                    color: kcWhitecolor),
+                    color: kcLightGrey.withOpacity(0.5)),
                 child: Column(
                   children: [
                     Image.network(
                       snapshot.data!,
-                      height: Get.height * 0.3,
+                      height: Get.height * 0.4,
                       width: Get.width,
                       fit: BoxFit.fill,
                       errorBuilder: (BuildContext context, Object exception,
@@ -118,7 +121,7 @@ class _ImageEditingScreenState extends State<ImageEditingScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Text(
-                        'The try-on image was successfully generated, showcasing the selected product seamlessly integrated into a realistic visual. This feature provides users with an accurate preview, enhancing their shopping experience by enabling informed decisions. The advanced technology ensures high-quality rendering, making virtual try-ons both practical and engaging for users.',
+                        'The try-on image was successfully generated, showcasing the selected product seamlessly integrated into a realistic visual.',
                         style: getRegularStyle(),
                       ),
                     )
