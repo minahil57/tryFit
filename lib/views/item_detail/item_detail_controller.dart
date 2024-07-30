@@ -6,7 +6,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:try_fit/models/product_model.dart';
 import 'package:try_fit/services/pic_upload.dart';
 import 'package:try_fit/services/tryOn_services.dart';
-import 'package:try_fit/views/tryOn_imagePicker/tryOn_view.dart';
 import 'package:try_fit/views/tryOn_image_display/tryOn_image_display_view.dart';
 
 import '../../core/imports/core_imports.dart';
@@ -59,9 +58,5 @@ class ItemDetailController extends GetxController {
     }
   }
 
-  void toImagePickerScreen(ProductModel product) {
-    Get.to(TryonView(
-      productModel: product,
-    ));
-  }
+
 }

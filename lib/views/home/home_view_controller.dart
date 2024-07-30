@@ -22,9 +22,7 @@ class HomeViewController extends GetxController {
     Get.to(() => ItemDetailView(product: products));
   }
 
-  void onFilterTap() {
-    Get.to(() => ProductInputScreen());
-  }
+
 
   @override
   void onInit() async {

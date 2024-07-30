@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:try_fit/core/constants/string_manager.dart';
 
 class ApiService {
   //final Dio _dio = Dio();
@@ -8,7 +9,7 @@ class ApiService {
   Future<String?> editImage(String upperBody, String lowerBody,double height,double width) async {
     const String url = 'https://modelslab.com/api/v6/image_editing/fashion';
     final Map<String, dynamic> data = {
-      "key": "vwGrHeGLRH9GUEtH4mDlod0JCh09eFZ9o5BQ3NVL2OcJk8FeJKe4ChkGVWuN",
+      "key": StringManager.apiKey,
       "prompt": "A realistic photo of a model wearing a beautiful t-shirt",
       "negative_prompt": "Low quality, unrealistic, bad cloth, warped cloth",
       "init_image": lowerBody,

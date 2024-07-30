@@ -1,5 +1,4 @@
 import 'package:try_fit/core/imports/core_imports.dart';
-import 'package:try_fit/core/imports/external_imports.dart';
 import 'package:try_fit/models/product_model.dart';
 import 'package:try_fit/views/item_detail/widgets/background_image.dart';
 import 'package:try_fit/views/item_detail/widgets/top_container.dart';

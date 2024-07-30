@@ -19,7 +19,7 @@ class ItemDisplayGrid extends GetView<HomeViewController> {
         crossAxisSpacing: 10,
         children: [
           GestureDetector(
-            onTap: controller.onFilterTap,
+
             child: Container(
               alignment: Alignment.center,
               height: 40.h,
